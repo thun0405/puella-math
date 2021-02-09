@@ -1,0 +1,107 @@
+%! section = 1_.1-1_.1-1-a_topological_groups
+
+\begin{definition}[位相群]
+    \label{topological_group}
+    \input{def_topological_group.tex}
+\end{definition}
+
+\begin{proposition}
+    $G$を群かつHausdorff空間とする.
+    次は同値である.
+    \begin{enumerate}
+        \item $G$は位相群である.
+        \item 写像$G\times G \to G ； (x, y)\mapsto x^{-1}y$は連続である.
+        \item 任意の$x,y\in G$と$x^{-1}y$の任意の開近傍$U$に対し,
+        $x, y$の開近傍$V, W$が存在し$V^{-1}W\subset U$を満たす.
+        ただし, $V^{-1}W= \{x^{-1}y\in G \mid x\in V, y\in W \}$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    $m\colon (x,y)\mapsto xy$,
+    $i\colon x\mapsto x^{-1}$,
+    $\phi\colon (x,y)\mapsto x^{-1}y$とする.
+
+    (i)$\Rightarrow$(ii):
+    $\phi= m\circ (i\times \identity_G)$より$\phi$は連続である.
+
+    (i)$\Leftarrow$(ii):
+    $i = \phi(-,e)$より$i$は連続である.
+    また, $m= \phi\circ(i\times\identity_G)$より$m$は連続である.
+
+    (ii)$\Rightarrow$(iii):
+    仮定より$\phi^{-1}(U)$は開集合であり, かつ$(x,y)\in \phi^{-1}(U)$である.
+    したがって$(x, y)$の開近傍$V\times W$で$V\times W \subset \phi^{-1}(U)$であるものが取れる.
+    このとき,
+    \[V^{-1}W= \phi(V\times W) \subset U
+    \]
+    より, $V, W$が求める$x, y$の開近傍である.
+
+    (ii)$\Leftarrow$(iiii):
+    任意の開集合$U\subset G$に対し, $\phi^{-1}(U)$が開であることを示せば良い.
+    そのために, 各点$(x,y)\in \phi^{-1}(U)$に対し$\phi^{-1}(U)$内で開近傍が取れることを示す.
+
+    $x^{-1}y= \phi(x,y)\in U$なので, 仮定より$x, y$の開近傍$V, W$で$V^{-1}W\subset U$なるものが存在する.
+    このとき$\phi(V\times W) = V^{-1}W$より
+    \[V\times W \subset \phi^{-1}(V^{-1}W) \subset \phi^{-1}(U)
+    \]
+    であるから, $V\times W$が求める$(x,y)$の開近傍である.
+\end{proof}
+
+\begin{proposition}
+    \input{thm_topological_subgroup.tex}
+\end{proposition}
+
+\begin{proof}
+    $H$は明らかに$G$のHausdorff性を継承する.
+
+    写像$(x,y)\mapsto x^{-1}y$の連続性を示す.
+    任意の$x, y\in H$と$x^{-1}y$の任意の開近傍$U\subset G$に対し,
+    $H$内で$x, y$の適切な開近傍が取れれば良い.
+    仮定より, $x, y$の開近傍$V, W\subset G$で$V^{-1}W\subset U$なるものが取れる.
+    このとき
+    \[(V\cap H)^{-1} \cdot W\cap H
+    = V^{-1}\cap H \cdot W\cap H
+    \subset (V^{-1}W) \cap H \subset U\cap H
+    \]
+    より, $V\cap H , W\cap H$が求める$x, y$の開近傍である.
+\end{proof}
+
+\begin{proposition}
+    \input{thm_natural_map_is_open_map.tex}
+\end{proposition}
+
+\begin{proof}
+    任意の開集合$U\subset G$に対し, $\pi(U)\subset G/H$が開,
+    すなわち$\pi^{-1}(\pi(U))$が開であればよい.
+
+    まず,
+    \[\pi^{-1}(\pi(U)) = \bigcup_{u\in U}uH = \bigcup_{h\in H}Uh
+    \]
+    である.
+    また, 右移動$G\to G ;x\mapsto xh$は同相であるため,
+    各$Uh$は開集合であり,
+    したがって$\pi^{-1}(\pi(U))$は開集合である.
+\end{proof}
+
+\begin{proposition}
+    \input{thm_quotient_topological_group.tex}
+\end{proposition}
+
+\begin{proof}
+    $x, y\in G$について, $xH \neq yH$のとき$x^{-1}y\in G\setminus H$である.
+    $H$が閉ならば$G\setminus H$は開であるので,
+    写像$(x,y)\mapsto x^{-1}y$の連続性より,
+    $x, y$の開近傍$U, V$が存在して$U^{-1}V\subset G\setminus H$を満たす.
+    $\pi$は開写像であるから, $\pi(U), \pi(V)$が$xH, yH$を開近傍である.
+    また, このとき$\pi(U)\cap \pi(V)= \emptyset$であることが次のように示される.
+    $\pi(U)\cap \pi(V)\neq \emptyset$であるとすると,
+    ある$u\in U, v\in V$が存在して$u^{-1}v\in H$となるが,
+    \[u^{-1}v \in (U^{-1}V)\cap H \subset (G\setminus H)\cap H = \emptyset
+    \]
+    となり矛盾する.
+\end{proof}
+上の証明において, $G$のHausdorff性を使わないことに注意.
+
+
+相互参照テスト\ref{topological_group}

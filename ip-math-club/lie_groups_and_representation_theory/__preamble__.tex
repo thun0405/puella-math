@@ -1,0 +1,28 @@
+\documentclass[11pt]{jsarticle}
+
+\usepackage{amsmath,amssymb,amscd,amsthm,ascmac}
+\usepackage{graphicx}
+\usepackage[svgnames]{xcolor}% tikzより前に読み込む必要あり
+\usepackage{tikz}
+
+\newtheoremstyle{jplain}% name
+{}% space above
+{}% space below
+{\normalfont}% body font
+{}% indent amount
+{\bfseries}% theorem head font
+{.}% punctuation after theorem head
+{4pt}% space after theorem head (default: 5pt)
+{\thmname{#1}\thmnumber{#2}\thmnote{\hspace{2pt}(#3)}}% theorem head spec
+
+\theoremstyle{jplain}
+\newtheorem{definition}{定義}[section]
+\newtheorem*{definition*}{Definition}  %%*がつくと定理番号がつかない
+\newtheorem{theorem}[definition]{定理}
+\newtheorem{proposition}[definition]{命題}
+\newtheorem{corollary}[definition]{系}
+\newtheorem{lemma}[definition]{補題}
+
+\DeclareMathOperator{\identity}{id}
+
+\newcommand{\AAAAAAAA}{TestTestTest}

@@ -1,0 +1,79 @@
+% !TeX root = main.tex
+\documentclass[11pt]{jsarticle}
+
+\usepackage{amsmath,amssymb,amscd,amsthm,ascmac} %% euler はeulerFont
+\usepackage{graphicx}
+
+
+\usepackage[svgnames]{xcolor}% tikzより前に読み込む必要あり
+\usepackage{tikz}
+\usepackage{subfiles}
+
+
+\newtheoremstyle{jplain}% name
+{}% space above
+{}% space below
+{\normalfont}% body font
+{}% indent amount
+{\bfseries}% theorem head font
+{.}% punctuation after theorem head
+{4pt}% space after theorem head (default: 5pt)
+{\thmname{#1}\thmnumber{#2}\thmnote{\hspace{2pt}(#3)}}% theorem head spec
+
+
+\theoremstyle{jplain}
+\newtheorem{definition}{定義}[section]
+\newtheorem*{definition*}{Definition}  %%*がつくと定理番号がつかない
+\newtheorem{theorem}[definition]{定理}
+\newtheorem{proposition}[definition]{命題}
+\newtheorem{corollary}[definition]{系}
+\newtheorem{lemma}[definition]{補題}
+
+\DeclareMathOperator{\image}{Im}
+\DeclareMathOperator{\kernel}{Ker}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\identity}{id}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Sym}{Sym}
+\newcommand{\AAAAAAAA}{TestTestTest}
+
+\begin{document}
+    分解体
+
+    $ax^2+bx+c=0$
+    これが解けるか？
+
+    環の様々な定義
+
+    UFD
+    \subfile{test2/sub1.tex}
+%    \input{test2/sub1.tex}
+    \AAAAAAAA
+
+    多項式環
+    既約多項式
+    準同型写像
+
+    剰余定理
+    $f(x)=3x^3+4x+2$, $g(x)=3x^2+1$
+    体係数に限定しないの珍しい
+    \begin{proof}
+        存在証明
+        $\deg{f} < \deg{g}$の時は自明
+        $\deg{f} \geq \deg{g}$の時、最高次係数を合わせて逐次消していけば、有限回で終了する。
+        いわゆるユークリッドの互除法
+
+        一意性証明
+        $f=pg+q=p'g+q'$とする。
+        $\deg{q}, \deg{q'} < {g}$より$\deg{q-q'}<\deg{g}$
+        $q-q'=(p'-p)g$
+        $p\neq p'$ならば$\deg{q-q'}\geq\deg{g}$で矛盾するため$p=p'$
+        よって$q=q'$
+    \end{proof}
+
+    体は係数
+    \begin{proof}
+        unitは零因子にならない
+    \end{proof}
+\end{document}
